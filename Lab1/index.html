@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Programowanie w JAVASCRIPT - template">
+    <meta name="author" content="dr inż. Jacek Paluszak">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>Programowanie w JAVASCRIPT</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js"></script>
+
+    <!-- jQuery  -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="/http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+    <script src="../js/jquery.easing.1.3.min.js"></script>
+    <script src="../js/jquery.easing.compatibility.js"></script>
+
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                  height="40" alt=""></a> <a class="navbar-brand logotext" href="../index.html">Główny index</a>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                    height="40" alt=""></a> <a class="navbar-brand logotext" href="../Lab1/index.html">Lab1</a>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                    height="40" alt=""></a> <a class="navbar-brand logotext" href="../Lab2/index.html">Lab2</a>
+        </div>
+
+</nav>
+<!-- TESTOWE -->
+
+<!--<script defer>
+    var name = prompt('Jak masz na imię?', '');
+</script>
+<script defer>
+    document.write('<p>Ćw. 1. Witaj, ' + name + '</p>');
+</script>-->
+
+<!-- ZADANIE 1 -->
+
+<!--<script>
+let tablica = ['AAA','BBB','CCC','DDD','EEE'];
+alert(tablica[0]);
+</script>-->
+
+
+<!--<script>
+    let tablica = ['AAA','BBB','CCC','DDD','EEE'];
+    tablica[tablica.length-1] = 'FFF';
+    alert(tablica[4]);
+</script>-->
+
+<!--<script>
+    let tablica = ['AAA','BBB','CCC','DDD','EEE'];
+    tablica[5] = 'nowy6';
+    alert(tablica[5]);
+</script>-->
+
+<!--<script>
+    let tablica = ['AAA','BBB','CCC','DDD','EEE'];
+    tablica[5] = 'nowy6';
+    tablica[tablica.length] = 'nowy7';
+    alert(tablica[6]);
+    tablica.push('nowy8', 'nowy9', 'nowy10', 'nowy11');
+    tablica.unshift('nowy12', 'nowy13');
+
+
+    for(i=0; i<tablica.length; i++){
+
+       document.write(tablica[i]);
+    }
+</script>-->
+
+<!-- ZADANIE 2 -->
+
+<!--<script>
+let tablica = ['Norbert', 'Alfred', 'Franciszek', 'Olaf', 'Borys'];
+
+/*document.write('<p>Ostatni element to <strong>');
+document.write(tablica[tablica.length-1] + '</strong></p>');*/
+tablica.unshift('Janusz');
+
+document.write('<p>Pierwszy element to <strong>');
+document.write(tablica[0] + '</strong></p>');
+
+</script>-->
+
+<!-- QUIZ -->
+
+
+<div id="pole_pytania"></div>
+<input type="number" id="answer" placeholder="Podaj odpowiedz">
+<button id="submit" onclick="check_answer()">Sprawdź</button>
+<div id="score" ></div>
+
+
+
+
+
+
+
+</div>
+<script>
+    let score = 0;
+    let pytanie = 0;
+    let questions = [
+        ['Ile księżyców ma Ziemia?', 1],
+        ['Ile księżyców ma Saturn?', 62],
+        ['Ile księżyców ma Wenus?', 0]
+    ];
+let pole_pytania = document.getElementById("pole_pytania");
+let odpowiedz = document.getElementById("answer");
+let wyslij = document.getElementById("submit");
+let wynik = document.getElementById("score");
+
+
+show_answer();
+
+function show_answer(){
+pole_pytania.innerHTML=questions[pytanie][0];
+}
+function check_answer(){
+
+    if (odpowiedz.value == questions[pytanie][1]) {
+        score++;
+    } 
+    pytanie++;
+    if(pytanie == questions.length)
+    { 
+    wynik.innerHTML = score+" z "+questions.length;
+    }
+    
+   
+    show_answer();
+    
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+<script src="../js/forms.js"></script>
+
+</body>
+
+</html>
