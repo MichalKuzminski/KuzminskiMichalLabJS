@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Programowanie w JAVASCRIPT - template">
+    <link rel="icon" href="img/favicon.ico">
+
+    <title>Lab4</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/navbar-fixed-top.css" rel="stylesheet">
+    <script src="../js/ie-emulation-modes-warning.js"></script>
+
+    <!-- jQuery  -->
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
+    <script src="../js/jquery.easing.1.3.min.js"></script>
+    <script src="../js/jquery.easing.compatibility.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        td img{
+        width: 100px;
+        height: 100px;
+
+           
+        }
+     
+    
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                  height="40" alt=""></a> <a class="navbar-brand logotext" href="../index.html">Główny index</a>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                    height="40" alt=""></a> <a class="navbar-brand logotext" href="../Lab1/index.html">Lab1</a>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                    height="40" alt=""></a> <a class="navbar-brand logotext" href="../Lab2/index.html">Lab2</a>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                    height="40" alt=""></a> <a class="navbar-brand logotext" href="../Lab3/index.html">Lab3</a>
+            <a class="navbar-brand" href="../index.html"><img src="img/logoPWSZ.png"
+                                                    height="40" alt=""></a> <a class="navbar-brand logotext" href="../Lab4/index.html">Lab4</a>                                         
+        </div>
+
+</nav>
+<body id="test">
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cytaty</th>
+            <th scope="col3">Tytuły</th>
+            <th scope="col">Ilustracje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td class="cytat">Lorem ipsum dolor sit amet enim. Etiam ullamcorper.<br>
+            Suspendisse a pellentesque dui, non felis.<br>
+            Maecenas malesuada elit lectus felis, malesuada ultricies.<br>
+            Curabitur et ligula. .</td>
+            <td class="tytul">Lorem ipsum - opowieść wszechczasów</td>
+            <td><img src="lipsum.png" alt="brak"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td class="cytat">Litwo! Ojczyzno moja! Ty jesteś jak zdrowie. Ile cię stracił.<br>
+             Dziś piękność widziana więc wszyscy Soplicowie są, jak kity z synowcem witania:<br>
+            dał Podkomorzynie Tadeusz przyglądał się<br> 
+            kupiecka ale częstym skinieniem głowy potakiwał. </td>
+            <td class="tytul">Pan Tadeusz - Adam Mickiewicz</td>
+            <td><img src="tadeusz.png" alt="brak"></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td class="cytat">Początek traktatu czasu panowania Fryderyka Wielkiego, Króla Pruskiego<br>
+            żył w myśli ze strony też tu na godności człowieka nie dla czego kto zadał to Pan Malinowski<br>
+            w stosunku do dobrego sposobu myślenia niewolniczy to jest najwyższy,<br>
+            jaki wpływ wywierać; Dobro wszystko poświęcić. </td>
+            <td class="tytul"> Rozprawa filozoficzna o religii i moralności - Immanuel Kant </td>
+            <td><img src="kant.png" alt="brak"></td>
+          </tr>
+        </tbody>
+      </table>
+
+<input type="button" name="f1" id="1" value="Funkcja 1">
+<input type="button" name="f2" id="2" value="Funkcja 2">
+<input type="button" name="f3" id="3" value="Funkcja 3">
+<input type="button" name="f4" id="4" value="Funkcja 4">
+<input type="button" name="f5" id="5" value="Funkcja 5">
+<br>
+<label for="f1">Funkcja 1 - Wstaw żółte tło w parzystch kolumnach </label><br>
+<label for="f2">Funkcja 2 - Zmień kolor napisów w nieparzystej kolumnie, dodaj napis na końcu</label><br>
+<label for="f3">Funkcja 3 - Ukryj ilustracje </label><br>
+<label for="f4">Funkcja 4 - Pokaż ilustracje</label><br>
+<label for="f5">Funkcja 5 -  </label><br>
+
+
+
+
+</body>
+<script>
+var button1 = document.getElementById("1");
+var button2 = document.getElementById("2");
+var button3 = document.getElementById("3");
+var button4 = document.getElementById("4");
+var button5 = document.getElementById("5");
+
+$(button1).click(function() {
+$('td').append("<style>td:nth-child(even) {background-color: yellow;}</style>");
+});
+
+$(button2).click(function() {
+$('td').append("<style>td:nth-child(odd){color: red;}</style>");
+$('td:nth-child(odd)').append("<style>.koniec{font-family: Arial; color: green; font-size: 20px;}</style> <p class='koniec'>KONIEC TYTUŁU</p>");
+});
+
+$(button3).click(function() {
+$('td img').fadeOut(1000); 
+});
+
+$(button4).click(function() {
+$('td img').fadeIn(1000); 
+});
+
+$(button5).click(function() {
+$('.tytul').append("<style>td:last-of-type{color: red;}</style>");
+$('td:nth-child(odd)').append("<style>.koniec{font-family: Arial; color: green; font-size: 20px;}</style> <p class='koniec'>KONIEC TYTUŁU</p>");
+});
+
+
+</script>
+
+
+
+
+
+
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+<script src="../js/forms.js"></script>
+
+</body>
+
+</html>
