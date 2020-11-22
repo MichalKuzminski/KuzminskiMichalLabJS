@@ -28,13 +28,41 @@
         td img{
         width: 100px;
         height: 100px;
-
-           
         }
+        .tajne{
+        display: none;
+        color: white;
+        transform: 180(deg);
+        }
+        .tla{
+        background-color: yellow;
+        }
+        .napisy{
+          color: red;
+        }
+        .odkryte{
+          color: black;
+        }
+        .muzyczna{
+          column-span: 5;
+        }
+        .muzyczna_widoczna{
+          display:block;
+        }
+        .foty{
+          position: absolute; 
+          -webkit-animation:spin 4s linear infinite; 
+          -moz-animation:spin 4s linear infinite; 
+          animation:spin 4s linear infinite; } 
+          @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+          @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } } 
+          @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } };
+        
      
     
 
     </style>
+ 
 
 </head>
 
@@ -74,6 +102,7 @@
             <th scope="col">Cytaty</th>
             <th scope="col3">Tytuły</th>
             <th scope="col">Ilustracje</th>
+            <th scope="col">Tajne</th>
           </tr>
         </thead>
         <tbody>
@@ -85,6 +114,7 @@
             Curabitur et ligula. .</td>
             <td class="tytul">Lorem ipsum - opowieść wszechczasów</td>
             <td><img src="lipsum.png" alt="brak"></td>
+            <td class="tajne">Tajne</td>
           </tr>
           <tr>
             <th scope="row">2</th>
@@ -94,6 +124,7 @@
             kupiecka ale częstym skinieniem głowy potakiwał. </td>
             <td class="tytul">Pan Tadeusz - Adam Mickiewicz</td>
             <td><img src="tadeusz.png" alt="brak"></td>
+            <td class="tajne">Ukryte</td>
           </tr>
           <tr>
             <th scope="row">3</th>
@@ -103,7 +134,10 @@
             jaki wpływ wywierać; Dobro wszystko poświęcić. </td>
             <td class="tytul"> Rozprawa filozoficzna o religii i moralności - Immanuel Kant </td>
             <td><img src="kant.png" alt="brak"></td>
+            <td class="tajne">Informacje</td>
           </tr>
+         
+          
         </tbody>
       </table>
 
@@ -112,12 +146,16 @@
 <input type="button" name="f3" id="3" value="Funkcja 3">
 <input type="button" name="f4" id="4" value="Funkcja 4">
 <input type="button" name="f5" id="5" value="Funkcja 5">
+<input type="button" name="f6" id="6" value="Funkcja 6">
+<input type="button" name="f7" id="7" value="Funkcja 7">
 <br>
 <label for="f1">Funkcja 1 - Wstaw żółte tło w parzystch kolumnach </label><br>
-<label for="f2">Funkcja 2 - Zmień kolor napisów w nieparzystej kolumnie, dodaj napis na końcu</label><br>
+<label for="f2">Funkcja 2 - Zmień kolor napisów w nieparzystej kolumnie</label><br>
 <label for="f3">Funkcja 3 - Ukryj ilustracje </label><br>
-<label for="f4">Funkcja 4 - Pokaż ilustracje</label><br>
-<label for="f5">Funkcja 5 -  </label><br>
+<label for="f4">Funkcja 4 - Pokaż tajne informacje<span id="gwiazdka">*</span><sub>[Naciśnij gwiazdkę!]</sub></label><br>
+<label for="f5">Funkcja 5 - Głowa w betoniarce </label><br>
+<label for="f6">Funkcja 6 - W każdej komórce wstaw na początku napis</label><br>
+<label for="f7">Funkcja 7 - Dodaj wiersz na końcu i włącz muzykę</label><br>
 
 
 
@@ -129,29 +167,127 @@ var button2 = document.getElementById("2");
 var button3 = document.getElementById("3");
 var button4 = document.getElementById("4");
 var button5 = document.getElementById("5");
+var button6 = document.getElementById("6");
+var button7 = document.getElementById("7");
 
+
+let flaga1 = true;
 $(button1).click(function() {
-$('td').append("<style>td:nth-child(even) {background-color: yellow;}</style>");
+if(flaga1)
+{
+  $("td:even").addClass("tla")
+  flaga1=false;
+}
+else
+{
+  $("td:even").removeClass("tla")
+  flaga1=true;
+}
 });
 
+let flaga2 = true;
 $(button2).click(function() {
-$('td').append("<style>td:nth-child(odd){color: red;}</style>");
-$('td:nth-child(odd)').append("<style>.koniec{font-family: Arial; color: green; font-size: 20px;}</style> <p class='koniec'>KONIEC TYTUŁU</p>");
+if(flaga2)
+{
+$('td:odd').addClass("napisy")
+flaga2 = false;
+}
+else
+{
+$('td:odd').removeClass("napisy")
+flaga2=true;
+}
 });
 
+let flaga3 = true;
 $(button3).click(function() {
-$('td img').fadeOut(1000); 
+ if(flaga3){
+$('td img').fadeOut(1000);
+flaga3 = false;
+ }
+ else
+ {
+  $('td img').fadeIn(1000);
+  flaga3 = true; 
+ }
 });
 
+let flaga4 =  true;
 $(button4).click(function() {
-$('td img').fadeIn(1000); 
+  if(flaga4){
+$('.tajne').fadeIn(1000); 
+flaga4=false;
+  }
+  else
+  {
+  $('.tajne').fadeOut(1000);
+  flaga4=true; 
+  }
+});
+$('.tajne').dblclick(function() {
+$('.tajne').addClass("odkryte")
 });
 
+$(document.getElementById("gwiazdka")).click(function() {
+alert("Aby wyświetlić tajne info uruchom funkcję 4 oraz naciśnij dwukrotnie wybraną komórkę z kolumny Tajne" );
+});
+
+let flaga5 = true;
 $(button5).click(function() {
-$('.tytul').append("<style>td:last-of-type{color: red;}</style>");
-$('td:nth-child(odd)').append("<style>.koniec{font-family: Arial; color: green; font-size: 20px;}</style> <p class='koniec'>KONIEC TYTUŁU</p>");
+if(flaga5)
+{
+$('td img').addClass("foty")
+flaga5 = false;
+}
+else
+{
+  $('td img').removeClass("foty")
+  flaga5 = true;
+}
 });
 
+let flaga55 = true;
+$(button6).click(function() {
+if(flaga55)
+{
+$('td').prepend("<p class='tekscik' style='color: blue'>Funkcja 6 - test</p>"); 
+flaga55 = false;
+}
+else
+{
+  $('.tekscik').remove(); 
+  flaga55 = true;
+}
+});
+
+$(button7).ready(function() {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3');
+    audioElement.play();
+    audioElement.addEventListener('ended', function() {
+        this.play();
+    }, false);
+    
+let flaga6 = true;
+    $(button7).click(function() {
+      if(flaga6)
+      {
+
+        audioElement.play();
+        $('table').append('<tr><td colspan="4"><p style="font-size:20px; text-align:center;"><strong>Posłuchajmy muzyki</strong></p></td></tr>')
+        flaga6 = false;
+       
+      }
+      else
+      {
+        audioElement.pause();
+        flaga6 = true;
+        audioElement.currentTime = 0;
+      }
+    });
+    
+
+});
 
 </script>
 
@@ -165,5 +301,6 @@ $('td:nth-child(odd)').append("<style>.koniec{font-family: Arial; color: green; 
 <script src="../js/forms.js"></script>
 
 </body>
+
 
 </html>
